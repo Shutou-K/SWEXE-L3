@@ -1,0 +1,16 @@
+<% if @tweet.errors.present? %>
+    <h3>エラーがあります。</h3>
+    <ul>
+        <% @tweet.errors.full_messages.each do |twe| %>
+            <li><%= twe %></li>
+        <% end %>
+    </ul>
+<% end %>
+
+<%= form_for @tweet , url: {action: :create} do |f| %>
+    <%= f.label :message, 'つぶやき:' %>
+    <%= f.text_field :message %><br>
+    <%= f.label :tdate, '日時:' %>
+    <%= time_ago_in_words(Time.current)+"前" %><br>
+    <%= f.submit 'つぶやく' %>
+<% end %>

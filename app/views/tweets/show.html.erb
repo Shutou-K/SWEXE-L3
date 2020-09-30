@@ -1,0 +1,10 @@
+
+<p>
+    <strong>つぶやき:</strong>
+    <%= @tweet.message %>
+</p>
+<p>
+    <strong>日時:</strong>
+    <%= time_ago_in_words(Time.current)+"前" %>
+</p>
+<%= link_to '戻る', '/' %>
